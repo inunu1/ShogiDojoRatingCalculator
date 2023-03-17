@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Hello</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="/css/design.css">
+    <script src="/script/script.js"></script>
+  </head>
+  <body>
+    <h1 class="center">SpringBootを利用したデモアプリケーション</h1>
+    <h2 class="center"><span th:text="${message}"></span></h2>
+	<div id="regist_form" class="form">
+		<form id="regist_form" method="get" th:action="@{/qr}">
+			<div class="form_button"><button type="submit">QRコードを生成する</button></div>
+		</form>
+	</div>
+	<div class="center">
+		<img th:src="@{'/imageBytes'}" />
+	</div>
+  </body>
+</html>
