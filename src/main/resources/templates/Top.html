@@ -1,15 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" th:extends="base">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link th:href="@{/top.css}" rel="stylesheet" >
 </head>
 <body>
-    <table>
-        <tr>
-            <td><a href="http://localhost:8080/qr">QR</a></td>
-            <td><a href="http://localhost:8080/Player_Insert">プレイヤー登録</a></td>
-        </tr>
-    </table>
+    <div class="header">
+        <h1 class="center">
+            <span class="link" onclick="location.href='http://localhost:8080/Top';">二次元バーコードを用いたレーティング計算システム</span>
+        </h1>
+    </div>
+
+    <form method="get" th:action="@{/qr}">
+        <div class="form_button"><button type="submit">QrCode</button></div>
+    </form>
+    <form method="get" th:action="@{/Player_Insert}">
+        <div class="form_button"><button type="submit">ユーザー管理</button></div>
+    </form>
+    <form method="get" th:action="@{/Player_Insert}">
+        <div class="form_button"><button type="submit">対局管理</button></div>
+    </form>
 </body>
 </html>

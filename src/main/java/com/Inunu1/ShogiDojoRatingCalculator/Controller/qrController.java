@@ -6,15 +6,12 @@ import com.google.zxing.WriterException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.io.IOException;
-import java.util.List;
-import java.awt.image.BufferedImage;
 
 @Controller
-public class QrTestController {
+public class qrController {
     @Autowired
     private QrCodeService qrCodeService;
 
