@@ -55,6 +55,29 @@
 
     <div class="userlist">
         <h3>登録ユーザー一覧</h3>
+        <table border="1" style="border-collapse:collapse;">
+            <thead>
+                <tr><th class="hidden">ID</th>
+                    <th>会員区分</th>
+                    <th>会員名</th>
+                    <th>段位</th>
+                    <th>レーティング</th>
+                    <th>入会日</th>
+                    <th>更新日</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="user : ${userList}">
+                    <td th:text="${user.id}}"></td>
+                    td th:text="${user.memberType}"></td>
+                    <td th:text="${user.memberName}"></td>
+                    <td th:text="${user.grade}"></td>
+                    <td th:text="${user.rating}"></td>
+                    <td th:text="${user.joinDate}"></td>
+                    <td th:text="${user.updateDate}"></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </body>
 </html>
