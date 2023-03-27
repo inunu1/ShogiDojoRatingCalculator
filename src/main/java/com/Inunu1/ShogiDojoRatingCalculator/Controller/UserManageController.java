@@ -22,7 +22,7 @@ public class UserManageController {
         model.addAttribute("userList", userList);
         return "user-manage";
     }
-    @GetMapping(value = "/user-insert")
+    @PostMapping(value = "/user-insert")
     String useradd(@RequestParam("type") String type,
                    @RequestParam("name") String name,
                    @RequestParam("grade") String grade,
