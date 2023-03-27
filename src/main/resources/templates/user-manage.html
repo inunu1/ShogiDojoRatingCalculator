@@ -1,83 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>プレイヤー登録</title>
 </head>
 <body>
-    <h2>新規来場者受付</h2>
-    <form action="/user-insert">
-        <label for="id">会員ID:</label>
-        <input type="number" id="id" name="id" required><br>
-
-        <label for="type">会員区分:</label>
-        <select id="type" name="type" required>
-            <option value="1">一般会員</option>
-            <option value="2">管理者</option>
-        </select><br>
-
-        <label for="name">会員名:</label>
-        <input type="text" id="name" name="name" maxlength="20" required><br>
-
-        <label for="grade">段位:</label>
-        <select id="grade" name="grade" required>
-            <option value="01">初段</option>
-            <option value="02">二段</option>
-            <option value="03">三段</option>
-            <option value="04">四段</option>
-            <option value="05">五段</option>
-            <option value="06">六段</option>
-            <option value="07">七段</option>
-            <option value="08">八段</option>
-            <option value="09">九段</option>
-            <option value="-1">初級</option>
-            <option value="-2">2級</option>
-            <option value="-3">3級</option>
-            <option value="-4">4級</option>
-            <option value="-5">5級</option>
-            <option value="-6">6級</option>
-            <option value="-7">7級</option>
-            <option value="-8">8級</option>
-            <option value="-9">9級</option>
-        </select><br>
-
-        <label for="rate">レーティング:</label>
-        <input type="number" id="rate" name="rate" step="0.01"><br>
-
-        <label for="join_date">入会日:</label>
-        <input type="date" id="join_date" name="join_date"><br>
-
-        <label for="update_date">更新日:</label>
-        <input type="date" id="update_date" name="update_date"><br>
-
-        <input type="submit" value="送信">
-    </form>
-
-    <div class="userlist">
-        <h3>登録ユーザー一覧</h3>
-        <table border="1" style="border-collapse:collapse;">
-            <thead>
-                <tr><th class="hidden">ID</th>
-                    <th>会員区分</th>
-                    <th>会員名</th>
-                    <th>段位</th>
-                    <th>レーティング</th>
-                    <th>入会日</th>
-                    <th>更新日</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="user : ${userList}">
-                    <td th:text="${user.id}}"></td>
-                    td th:text="${user.memberType}"></td>
-                    <td th:text="${user.memberName}"></td>
-                    <td th:text="${user.grade}"></td>
-                    <td th:text="${user.rating}"></td>
-                    <td th:text="${user.joinDate}"></td>
-                    <td th:text="${user.updateDate}"></td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="header">
+        <h1 class="center">
+            <span class="link" onclick="location.href='http://localhost:8080/Top';">二次元バーコードを用いたレーティング計算システム</span>
+        </h1>
     </div>
+<h2>新規来場者受付</h2>
+<form action="/user-insert">
+
+    <label for="type">会員区分:</label>
+    <select id="type" name="type" required>
+        <option value="1">一般会員</option>
+        <option value="2">管理者</option>
+    </select><br>
+
+    <label for="name">会員名:</label>
+    <input type="text" id="name" name="name" maxlength="20" required><br>
+
+    <label for="grade">段位:</label>
+    <select id="grade" name="grade" required>
+        <option value="01">初段</option>
+        <option value="02">二段</option>
+        <option value="03">三段</option>
+        <option value="04">四段</option>
+        <option value="05">五段</option>
+        <option value="06">六段</option>
+        <option value="07">七段</option>
+        <option value="08">八段</option>
+        <option value="09">九段</option>
+        <option value="-1">初級</option>
+        <option value="-2">2級</option>
+        <option value="-3">3級</option>
+        <option value="-4">4級</option>
+        <option value="-5">5級</option>
+        <option value="-6">6級</option>
+        <option value="-7">7級</option>
+        <option value="-8">8級</option>
+        <option value="-9">9級</option>
+    </select><br>
+
+    <label for="rate">レーティング:</label>
+    <input type="number" id="rate" name="rate" step="0.01"><br>
+
+    <label for="join_date">入会日:</label>
+    <input type="date" id="join_date" name="join_date"><br>
+
+    <label for="update_date">更新日:</label>
+    <input type="date" id="update_date" name="update_date"><br>
+
+    <input type="submit" value="送信">
+</form>
+
+<div class="userlist">
+    <h3>登録ユーザー一覧</h3>
+    <table border="1" style="border-collapse:collapse;">
+        <thead>
+        <tr>
+            <th class="hidden">ID</th>
+            <th>会員区分</th>
+            <th>会員名</th>
+            <th>段位</th>
+            <th>レーティング</th>
+            <th>入会日</th>
+            <th>更新日</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${userList}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.type}"></td>
+            <td th:text="${user.name}"></td>
+            <td th:text="${user.grade}"></td>
+            <td th:text="${user.rate}"></td>
+            <td th:text="${user.join_date}"></td>
+            <td th:text="${user.update_date}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>

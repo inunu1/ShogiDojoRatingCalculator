@@ -11,7 +11,7 @@ import java.util.*;
 
 @Controller
 public class UserManageController {
-    record User(String id, String type, String name, String grade, Integer rate, String join_date,String update_date){}
+    record User(String id, String type, String name, String grade, String rate, String join_date,String update_date){}
     private List<User> userList = new ArrayList<>();
     @RequestMapping(value = "/user-manage")
     String user(){
@@ -26,12 +26,12 @@ public class UserManageController {
     String useradd(@RequestParam("type") String type,
                    @RequestParam("name") String name,
                    @RequestParam("grade") String grade,
-                   @RequestParam("rate") Integer rate,
+                   @RequestParam("rate") String rate,
                    @RequestParam("join_date") String join_date,
                    @RequestParam("update_date") String update_date){
         String id = UUID.randomUUID().toString().substring(0,8);
         User user = new User(id,type,name,grade,rate,join_date,update_date);
         userList.add(user);
-        return "user-manage";
+        return "redirect:/user-list";
     }
 }
