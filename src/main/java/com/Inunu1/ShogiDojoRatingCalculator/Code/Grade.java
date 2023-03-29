@@ -2,7 +2,7 @@ package com.Inunu1.ShogiDojoRatingCalculator.Code;
 
 import org.apache.commons.lang3.StringUtils;
 
-public enum grade {
+public enum Grade {
 
     DAN_NINE("+9","九段"),
     DAN_EIGHT("+8","八段"),
@@ -23,7 +23,7 @@ public enum grade {
     KYU_EIGHT("-8","八級"),
     KYU_NINE("-9","九級");
 
-    grade(String code, String name) {
+    Grade(String code, String name) {
         this.code = code;
         this.name = name;
     }
@@ -38,11 +38,11 @@ public enum grade {
         return name;
     }
 
-    public static grade getGradeByCode (String code) {
+    public static Grade getGradeByCode (String code) {
         if (StringUtils.isEmpty(code)) {
             return null;
         }
-        for (grade grade : grade.values()) {
+        for (Grade grade : Grade.values()) {
             if (StringUtils.equals(code, grade.getCode())) {
                 return grade;
             }
@@ -50,11 +50,11 @@ public enum grade {
         return null;
     }
 
-    public static grade getGradeByName (String name) {
+    public static Grade getGradeByName (String name) {
         if (StringUtils.isEmpty(name)) {
             return null;
         }
-        for (grade grade : grade.values()) {
+        for (Grade grade : Grade.values()) {
             if (StringUtils.equals(name, grade.getName())) {
                 return grade;
             }

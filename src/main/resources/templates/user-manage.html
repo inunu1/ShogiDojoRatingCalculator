@@ -25,8 +25,8 @@
     <label for="grade">段位:</label>
     </select></label></div>
     <div class="cp_iptxt"><label class="ef"><select name="grade" th:value="${grade}" >
-        <option value="" disabled selected style="display:none;">段位</option>
-        <option th:each="grade : ${T(com.Inunu1.ShogiDojoRatingCalculator.Code.grade).values()}" th:value="${grade.code}" th:text="${grade.name}" />
+        <option value="+3" disabled selected style="display:none;">段位</option>
+        <option th:each="grade : ${T(com.Inunu1.ShogiDojoRatingCalculator.Code.Grade).values()}" th:value="${grade.code}" th:text="${grade.name}"></option>
     </select></label></div><br>
 
     <label for="rate">レーティング:</label>
