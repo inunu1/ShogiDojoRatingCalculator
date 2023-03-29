@@ -23,26 +23,11 @@
     <input type="text" id="name" name="name" maxlength="20" required><br>
 
     <label for="grade">段位:</label>
-    <select id="grade" name="grade" required>
-        <option value="01">初段</option>
-        <option value="02">二段</option>
-        <option value="03">三段</option>
-        <option value="04">四段</option>
-        <option value="05">五段</option>
-        <option value="06">六段</option>
-        <option value="07">七段</option>
-        <option value="08">八段</option>
-        <option value="09">九段</option>
-        <option value="-1">初級</option>
-        <option value="-2">2級</option>
-        <option value="-3">3級</option>
-        <option value="-4">4級</option>
-        <option value="-5">5級</option>
-        <option value="-6">6級</option>
-        <option value="-7">7級</option>
-        <option value="-8">8級</option>
-        <option value="-9">9級</option>
-    </select><br>
+    </select></label></div>
+    <div class="cp_iptxt"><label class="ef"><select name="grade" th:value="${grade}" >
+        <option value="" disabled selected style="display:none;">段位</option>
+        <option th:each="grade : ${T(com.Inunu1.ShogiDojoRatingCalculator.Code.grade).values()}" th:value="${grade.code}" th:text="${grade.name}" />
+    </select></label></div><br>
 
     <label for="rate">レーティング:</label>
     <input type="number" id="rate" name="rate" step="0.01"><br>
