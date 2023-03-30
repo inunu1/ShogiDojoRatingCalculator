@@ -11,7 +11,7 @@
         </h1>
     </div>
 <h2>新規来場者受付</h2>
-<form action="/user-insert">
+<form action="/user-insert" method="post">
 
     <label for="type">会員区分:</label>
     <select id="type" name="type" required>
@@ -48,10 +48,10 @@
     <input type="number" id="rate" name="rate" step="0.01"><br>
 
     <label for="join_date">入会日:</label>
-    <input type="date" id="join_date" name="join_date"><br>
+    <input type="date" id="joinDate" name="joinDate"><br>
 
     <label for="update_date">更新日:</label>
-    <input type="date" id="update_date" name="update_date"><br>
+    <input type="date" id="updateDate" name="updateDate"><br>
 
     <input type="submit" value="送信">
 </form>
@@ -77,8 +77,8 @@
             <td th:text="${user.name}"></td>
             <td th:text="${user.grade}"></td>
             <td th:text="${user.rate}"></td>
-            <td th:text="${user.join_date}"></td>
-            <td th:text="${user.update_date}"></td>
+            <td th:text="${user.joinDate}"></td>
+            <td th:text="${user.updateDate}"></td>
         </tr>
         </tbody>
     </table>

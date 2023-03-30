@@ -1,4 +1,4 @@
-package com.Inunu1.ShogiDojoRatingCalculator;
+package com.Inunu1;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

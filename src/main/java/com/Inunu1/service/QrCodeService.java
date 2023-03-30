@@ -1,4 +1,4 @@
-package com.Inunu1.ShogiDojoRatingCalculator.service;
+package com.Inunu1.service;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;

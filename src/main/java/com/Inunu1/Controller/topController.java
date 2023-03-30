@@ -1,4 +1,4 @@
-package com.Inunu1.ShogiDojoRatingCalculator.Controller;
+package com.Inunu1.Controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

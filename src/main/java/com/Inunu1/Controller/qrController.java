@@ -1,7 +1,7 @@
-package com.Inunu1.ShogiDojoRatingCalculator.Controller;
+package com.Inunu1.Controller;
 
 import ch.qos.logback.core.model.Model;
-import com.Inunu1.ShogiDojoRatingCalculator.service.QrCodeService;
+import com.Inunu1.service.QrCodeService;
 import com.google.zxing.WriterException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
