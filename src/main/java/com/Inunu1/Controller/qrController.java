@@ -30,7 +30,7 @@ public class qrController {
     @ResponseBody
     public byte[] getImage() throws IOException, WriterException {
         // URLではないので読み取っても何も起こりません
-        String imageUrl = "Hello Inunu1";
+        String imageUrl = "http://localhost:8080/Top";
         return qrCodeService.generateQrCode(imageUrl, 256, 256);
     }
 }
