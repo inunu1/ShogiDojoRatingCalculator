@@ -1,11 +1,13 @@
 package com.Inunu1.ShogiDojoRatingCalculator.Controller;
 
-import ch.qos.logback.core.model.Model;
 import com.Inunu1.ShogiDojoRatingCalculator.service.QrCodeService;
 import com.google.zxing.WriterException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.io.IOException;
@@ -16,21 +18,16 @@ public class qrController {
     private QrCodeService qrCodeService;
 
     @GetMapping(value = "/qr")
-    public String generateQrCode(Model model) throws Exception {
-        // TODO 生成したQRコードをバイナリとしてDB保存すれば、対局ごとに一意にできそう
-        String imageText = "Sample Text";
-        byte[] imageBytes = qrCodeService.generateQrCode(imageText, 256, 256);
-        //model.addAttribute("imageBytes", imageBytes);
-        //model.addAttribute("message", "QRコードを生成しました!");
-
+    public String generateQrCode(@RequestParam String qrText, Model model) throws Exception {
+        byte[] imageBytes = qrCodeService.generateQrCode(qrText, 256, 256);
+        model.addAttribute("qrText", qrText);
         return "misc";
     }
 
-    @GetMapping("/imageBytes")
+    @GetMapping("/imageBytes/{qrText}")
     @ResponseBody
-    public byte[] getImage() throws IOException, WriterException {
+    public byte[] getImage(@PathVariable String qrText) throws IOException, WriterException {
         // URLではないので読み取っても何も起こりません
-        String imageUrl = "Hello Inunu1";
-        return qrCodeService.generateQrCode(imageUrl, 256, 256);
+        return qrCodeService.generateQrCode(qrText, 256, 256);
     }
 }
