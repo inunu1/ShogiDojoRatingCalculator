@@ -43,8 +43,8 @@
 
 <div class="userlist">
     <h3>登録ユーザー一覧</h3>
-    <form action="/delete-users" method="post">
-        <button type="submit">削除</button>
+    <form action="/qr" method="GET">
+        <button type="submit">QRコード</button>
     <table border="1" style="border-collapse:collapse;">
         <thead>
         <tr>
@@ -60,7 +60,7 @@
         </thead>
         <tbody>
         <tr th:each="user : ${userList}">
-            <td><input type="checkbox" name="deleteIds" th:value="${user.id}" /></td>
+            <td><input type="checkbox" name="qrtext" th:value="${user.id}" /></td>
             <td th:text="${user.id}"></td>
             <td th:text="${user.type}"></td>
             <td th:text="${user.name}"></td>
