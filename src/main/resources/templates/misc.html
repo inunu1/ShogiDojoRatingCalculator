@@ -15,7 +15,7 @@
     </form>
 </div>
 <div class="center">
-    <img th:src="@{'/imageBytes'}" />
+    <img th:src="@{|/imageBytes/${qrText}|}" />
 </div>
 </body>
 </html>
