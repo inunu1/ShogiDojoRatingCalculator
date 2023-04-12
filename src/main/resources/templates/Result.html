@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <form method="post" th:action="@{/result}">
+      <input type="text" name="winnerId">勝った人ID</input>
+      <input type="text" name="loserId" required>負けた人ID</input>
+      <input type="submit">
+  </form>
+</body>
+</html>
