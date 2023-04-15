@@ -22,8 +22,6 @@ public class ResultController {
     String addResult(@ModelAttribute ResultData resultData, Model model) {
         resultService.saveResult(resultData);
         return "redirect:/result";
-
-
     }
 
     @GetMapping(value = "/result")
