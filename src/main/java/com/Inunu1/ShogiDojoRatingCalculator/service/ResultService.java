@@ -1,11 +1,8 @@
 package com.Inunu1.ShogiDojoRatingCalculator.service;
 
-import com.Inunu1.ShogiDojoRatingCalculator.Util.DateTimeUtil;
 import com.Inunu1.ShogiDojoRatingCalculator.model.ResultData;
 import com.Inunu1.ShogiDojoRatingCalculator.model.TtGameResult;
-import com.Inunu1.ShogiDojoRatingCalculator.model.TtUser;
-import com.Inunu1.ShogiDojoRatingCalculator.model.UserData;
-import com.Inunu1.ShogiDojoRatingCalculator.repository.ResultCrudRepository;
+import com.Inunu1.ShogiDojoRatingCalculator.repository.ResultManageCrudRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ResultService {
     @Autowired
-    ResultCrudRepository resultCrudRepository;
+    ResultManageCrudRepository resultCrudRepository;
 
     public void saveResult(ResultData resultData) {
         TtGameResult ttGameResult = new TtGameResult();
