@@ -17,9 +17,7 @@ public class UserManageController {
 	
 	@Autowired
 	private UserManageService userManageService;
-	
-//    record User(String id, String type, String name, String grade, String rate, String join_date,String update_date){}
-//    private List<User> userList = new ArrayList<>();
+
     @RequestMapping(value = "/user-manage")
     String user(){
         return "user-manage";
@@ -32,9 +30,6 @@ public class UserManageController {
     }
     @PostMapping(value = "/user-insert")
     String useradd(@ModelAttribute UserData userData, Model model){
-//        String id = UUID.randomUUID().toString().substring(0,8);
-//        User user = new User(id,type,name,grade,rate,join_date,update_date);
-//        userList.add(user);
     	userManageService.saveUser(userData);
         return "redirect:/user-list";
     }
