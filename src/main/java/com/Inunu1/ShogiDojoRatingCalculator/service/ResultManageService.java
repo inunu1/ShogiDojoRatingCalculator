@@ -27,18 +27,18 @@ public class ResultManageService {
     public List<ResultData> findAllResult() {
         // すべてのユーザ情報を取得する
         List<TtGameResult> ttGameResults = resultManageCrudRepository.findAll();
-        List<UserData> userDatas = new ArrayList<>();
+        List<ResultData> resultDatas = new ArrayList<>();
         // 取得したユーザ情報を画面表示用のオブジェクトに詰め替える
-        for (TtUser ttUser : ttUsers) {
-            UserData userData = new UserData();
-            BeanUtils.copyProperties(ttUser, userData);
-            Grade grade = Grade.getGradeByCode(ttUser.getGrade());
-            userData.setGrade(grade.getName());
+        for (TtGameResult ttGameResult : ttGameResults) {
+            ResultData resultData = new ResultData();
+            BeanUtils.copyProperties(ttGameResult, resultDatas);
+            //Grade grade = Grade.getGradeByCode(ttGameResult.getGrade());
+            //resultData.setGrade(grade.getName());
 
-            UserType userType = UserType.getUserTypeByCode(ttUser.getType());
-            userData.setType(userType.getName());
-            userDatas.add(userData);
+            //UserType userType = UserType.getUserTypeByCode(ttGameResult.getType());
+            //resultData.setType(userType.getName());
+            resultDatas.add(resultData);
         }
-        return userDatas;
+        return resultDatas;
     }
 }
