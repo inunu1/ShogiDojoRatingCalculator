@@ -43,6 +43,11 @@
 
 <div class="userlist">
     <h3>登録ユーザー一覧</h3>
+    <form action="/user-search" method="get">
+        <input type="text" name="name">
+        <input type="submit">
+    </form>
+
     <form action="/qr" method="GET">
         <button type="submit">QRコード</button>
     <table border="1" style="border-collapse:collapse;">

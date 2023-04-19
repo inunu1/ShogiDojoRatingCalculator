@@ -4,10 +4,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import com.Inunu1.ShogiDojoRatingCalculator.model.UserData;
 import com.Inunu1.ShogiDojoRatingCalculator.service.UserManageService;
@@ -32,6 +29,14 @@ public class UserManageController {
     String useradd(@ModelAttribute UserData userData, Model model){
     	userManageService.saveUser(userData);
         return "redirect:/user-list";
+    }
+
+    //ユーザー検索処理
+    @GetMapping(value = "/user-search")
+    String userSearch(@RequestParam String name,Model model){
+        List<UserData> userList = userManageService.searchUser(name);
+        model.addAttribute("userList",userList);
+        return "user-manage";
     }
     
 }

@@ -1,5 +1,6 @@
 package com.Inunu1.ShogiDojoRatingCalculator.service;
 
+import com.Inunu1.ShogiDojoRatingCalculator.Util.DateTimeUtil;
 import com.Inunu1.ShogiDojoRatingCalculator.model.ResultData;
 import com.Inunu1.ShogiDojoRatingCalculator.model.TtGameResult;
 import com.Inunu1.ShogiDojoRatingCalculator.repository.ResultManageCrudRepository;
@@ -17,7 +18,9 @@ public class ResultService {
         // 画面から引き渡しされたUserDataオブジェクトを、TtUserにコピー。
         BeanUtils.copyProperties(resultData, ttGameResult);
         // DBへの書き込み処理。
-        //ttUser.setUpdateDate(DateTimeUtil.getNowDateStr("yyyyMMddHHmmss"));
+        String now = DateTimeUtil.getNowDateStr("yyyyMMddHHmmss");
+        ttGameResult.setGameDate(now);
+        ttGameResult.setUpdateDate(now);
         resultCrudRepository.save(ttGameResult);
     }
 }

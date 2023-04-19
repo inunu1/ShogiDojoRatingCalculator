@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class LoginController {
 
-    @GetMapping("/login")
+    @GetMapping("/")
     public String loginForm() {
         return "login"; // ログインフォームのテンプレートを表示
     }

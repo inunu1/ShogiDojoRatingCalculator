@@ -25,8 +25,25 @@ public class UserManageService {
 	public List<UserData> findAllUser() {
 		// すべてのユーザ情報を取得する
 		List<TtUser> ttUsers = userManageCrudRepository.findAll();
+		return convertUserData(ttUsers);
+	}
+	
+	public void saveUser(UserData userData) {
+		TtUser ttUser = new TtUser();
+		// 画面から引き渡しされたUserDataオブジェクトを、TtUserにコピー。
+		BeanUtils.copyProperties(userData, ttUser);
+		// DBへの書き込み処理。
+		ttUser.setUpdateDate(DateTimeUtil.getNowDateStr("yyyyMMddHHmmss"));
+		userManageCrudRepository.save(ttUser);
+	}
+
+	public List<UserData> searchUser(String name){
+		List<TtUser> ttUsers = userManageCrudRepository.findByNameContaining(name);
+		return convertUserData(ttUsers);
+	}
+
+	private List<UserData> convertUserData(List<TtUser> ttUsers){
 		List<UserData> userDatas = new ArrayList<>();
-		// 取得したユーザ情報を画面表示用のオブジェクトに詰め替える
 		for (TtUser ttUser : ttUsers) {
 			UserData userData = new UserData();
 			BeanUtils.copyProperties(ttUser, userData);
@@ -39,14 +56,4 @@ public class UserManageService {
 		}
 		return userDatas;
 	}
-	
-	public void saveUser(UserData userData) {
-		TtUser ttUser = new TtUser();
-		// 画面から引き渡しされたUserDataオブジェクトを、TtUserにコピー。
-		BeanUtils.copyProperties(userData, ttUser);
-		// DBへの書き込み処理。
-		ttUser.setUpdateDate(DateTimeUtil.getNowDateStr("yyyyMMddHHmmss"));
-		userManageCrudRepository.save(ttUser);
-	}
-	
 }
