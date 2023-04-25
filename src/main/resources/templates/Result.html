@@ -20,10 +20,10 @@
       </thead>
 
       <tbody>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+        <tr th:each="result : ${resultData}">
+            <td th:text="${result.game_date}"></td>
+            <td th:text="${result.winnerId}"></td>
+            <td th:text="${result.loserId}"></td>
         </tr>
       </tbody>
   </table>
