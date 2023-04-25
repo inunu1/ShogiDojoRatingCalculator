@@ -32,11 +32,6 @@ public class ResultManageService {
         for (TtGameResult ttGameResult : ttGameResults) {
             ResultData resultData = new ResultData();
             BeanUtils.copyProperties(ttGameResult, resultDatas);
-            //Grade grade = Grade.getGradeByCode(ttGameResult.getGrade());
-            //resultData.setGrade(grade.getName());
-
-            //UserType userType = UserType.getUserTypeByCode(ttGameResult.getType());
-            //resultData.setType(userType.getName());
             resultDatas.add(resultData);
         }
         return resultDatas;
