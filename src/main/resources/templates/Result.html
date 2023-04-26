@@ -13,17 +13,18 @@
   <table border="1">
       <thead>
         <tr>
+            <th>対局日時</th>
             <th>勝者</th>
             <th>敗者</th>
-            <th>対局日時</th>
+
         </tr>
       </thead>
 
       <tbody>
         <tr th:each="result : ${resultData}">
             <td th:text="${result.game_date}"></td>
-            <td th:text="${result.winnerId}"></td>
-            <td th:text="${result.loserId}"></td>
+            <td th:text="${result.winner}"></td>
+            <td th:text="${result.loser}"></td>
         </tr>
       </tbody>
   </table>
