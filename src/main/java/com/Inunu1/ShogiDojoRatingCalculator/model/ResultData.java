@@ -13,9 +13,4 @@ public class ResultData {
     private String sync_flg;
     private String update_date;
 
-    public ResultData (String game_date, String winner, String loser) {
-        this.game_date = game_date;
-        this.winner = winner;
-        this.loser = loser;
-    }
 }

@@ -5,6 +5,7 @@ import com.Inunu1.ShogiDojoRatingCalculator.repository.ResultManageCrudRepositor
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -14,6 +15,15 @@ public class ResultManageService {
 
     public List<ResultData> findAllResult() {
         // すべてのユーザ情報を取得する
-        return resultManageCrudRepository.getResult();
+        List<Object[]> resultList = resultManageCrudRepository.getResult();
+        List<ResultData> resultDataList = new ArrayList<>();
+        for (Object[] result : resultList) {
+            ResultData resultData = new ResultData();
+            resultData.setGame_date((String) result[0]);
+            resultData.setWinner((String) result[1]);
+            resultData.setLoser((String) result[2]);
+            resultDataList.add(resultData);
+        }
+        return resultDataList;
     }
 }
