@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>Login</h1>
-<form method="post" action="/login">
+<form method="post" action="index.html" th:action="@{/login}">
     <div>
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" th:required="true"/>
