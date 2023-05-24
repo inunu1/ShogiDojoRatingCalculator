@@ -11,7 +11,7 @@
         </h1>
     </div>
 <h2>新規来場者受付</h2>
-<form action="/user-insert" method="post">
+<form th:action="@{/user-insert}" method="post">
 
     <label for="type">会員区分:</label>
     <select id="type" name="type" required>
@@ -37,6 +37,9 @@
 
     <label for="joinDate">入会日:</label>
     <input type="date" id="joinDate" name="joinDate"><br>
+
+    <label for="password">パスワード:</label>
+    <input type="password" id="password" name="password" maxlength="20" required ><br>
 
     <input type="submit" value="送信">
 </form>

@@ -1,27 +1,26 @@
 package com.Inunu1.ShogiDojoRatingCalculator.service;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
 import com.Inunu1.ShogiDojoRatingCalculator.Code.Grade;
 import com.Inunu1.ShogiDojoRatingCalculator.Code.UserType;
 import com.Inunu1.ShogiDojoRatingCalculator.Util.DateTimeUtil;
-import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.Inunu1.ShogiDojoRatingCalculator.model.TtUser;
 import com.Inunu1.ShogiDojoRatingCalculator.model.UserData;
 import com.Inunu1.ShogiDojoRatingCalculator.repository.UserManageCrudRepository;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class UserManageService {
 
 	@Autowired
 	UserManageCrudRepository userManageCrudRepository;
-
+	@Autowired
+	PasswordEncoder passwordEncoder;
 	public List<UserData> findAllUser() {
 		// すべてのユーザ情報を取得する
 		List<TtUser> ttUsers = userManageCrudRepository.findAll();
@@ -34,6 +33,7 @@ public class UserManageService {
 		BeanUtils.copyProperties(userData, ttUser);
 		// DBへの書き込み処理。
 		ttUser.setUpdateDate(DateTimeUtil.getNowDateStr("yyyyMMddHHmmss"));
+		ttUser.setPassword(passwordEncoder.encode(userData.getPassword()));
 		userManageCrudRepository.save(ttUser);
 	}
 

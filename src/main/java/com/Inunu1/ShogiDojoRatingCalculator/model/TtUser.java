@@ -35,5 +35,8 @@ public class TtUser {
 
 	@Column(name = "update_date")
 	private String updateDate;
+
+	@Column(name = "password")
+	private String password;
 	
 }
