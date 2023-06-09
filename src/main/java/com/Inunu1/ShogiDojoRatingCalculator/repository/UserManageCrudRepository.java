@@ -9,4 +9,5 @@ import java.util.List;
 
 public interface UserManageCrudRepository extends JpaRepository<TtUser, Integer> {
     List<TtUser> findByNameContaining(String name);
+    List<TtUser> findByIdIn(List<Integer> Ids);
 }

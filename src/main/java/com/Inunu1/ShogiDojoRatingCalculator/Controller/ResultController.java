@@ -18,6 +18,7 @@ public class ResultController {
     private ResultService resultService;
     @Autowired
     private ResultManageService resultManageService;
+    @Autowired
 
     @PostMapping(value = "/result-manage")
     String addResult(@ModelAttribute ResultData resultData, Model model) {
